@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Cantidad Deseada</h1>
+<div mat-dialog-content>
+  <p>Por favor indique la cantidad de unidades deseadas</p>
+  <mat-form-field>
+    <mat-label>Cantidad</mat-label>
+    <input matInput [(ngModel)]="data.cantidad">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.cantidad" cdkFocusInitial>Agregar</button>
+</div>

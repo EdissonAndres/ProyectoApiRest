@@ -1,0 +1,37 @@
+<header class="header">
+    <h2>Cliente API REST</h2>
+    <button routerLink='/'>CLIENTES</button>
+    <button routerLink='/carrito'>PRODUCTOS</button>
+    <button routerLink='/compras'>COMPRAS</button>
+</header>
+
+<div class="titulo">
+    <p>Listado de Compras</p>
+</div>
+
+<section class="principal">
+    <form *ngFor="let compra of compras.compras" class="agregar">
+        <div>
+            <p>Id Compra: {{compra?.idCompra}}</p>
+            <p>Id Cliente: {{compra?.idCliente}}</p>
+            <p>Fecha: {{compra?.fecha}} Unidades</p>
+            <p *ngFor="let prod of compra.productos">Producto {{prod.index}}: {{prod?.idProducto}}, {{prod?.cant}} Unidades</p>
+            <p>Valor Total: {{compra?.valorCompra | currency}} </p>
+        </div>
+    </form>
+
+</section>
+
+<footer class="footer">
+    <div class="informacion">
+        <p>Proyecto API REST</p>
+        <p>Arquitectura Cliente Servidor</p>
+        <p>Universidad Tecnologica de Pereira</p>
+    </div>
+    <p class="personas">Desarrolado por:</p>
+    <div>
+        <p>Edisson Andres Montes</p>
+        <p>Orfilia Castillo Maturana</p>
+        <p>Alejandro Rios Gonzalez</p>
+    </div>
+</footer>

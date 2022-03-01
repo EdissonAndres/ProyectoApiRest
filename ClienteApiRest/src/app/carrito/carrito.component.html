@@ -1,0 +1,43 @@
+<header class="header">
+    <h2>Cliente API REST</h2>
+    <button routerLink='/'>CLIENTES</button>
+    <button routerLink='/carrito'>PRODUCTOS</button>
+    <button routerLink='/compras'>COMPRAS</button>
+</header>
+
+<div class="titulo">
+    <p>{{productosCompra.length}} Productos agregados a la compra</p>
+    <div>
+        <p>Cliente: </p>
+        <input type="text" [formControl]="cedulaFormControl" placeholder="Cedula">
+        <button (click)="realizarCompra()"class="boton">REALIZAR COMPRA</button>
+        <button (click)="limpiarCompra()"class="boton">LIMPIAR COMPRA</button>
+    </div>
+</div>
+
+<section class="principal">
+    <form *ngFor="let producto of productos.productos" class="agregar">
+        <div>
+            <p>ID: {{producto?.id}}</p>
+            <p>Descripcion: {{producto?.descripcion}}</p>
+            <p>Cantidad Disponible: {{producto?.cantidad}} Unidades</p>
+            <p>Precio: {{producto?.precio | currency}}</p>
+            <button (click)="agregarProducto(producto.id)" class="boton">AGREGAR AL CARRITO</button>
+        </div>
+    </form>
+
+</section>
+
+<footer class="footer">
+    <div class="informacion">
+        <p>Proyecto API REST</p>
+        <p>Arquitectura Cliente Servidor</p>
+        <p>Universidad Tecnologica de Pereira</p>
+    </div>
+    <p class="personas">Desarrolado por:</p>
+    <div>
+        <p>Edisson Andres Montes</p>
+        <p>Orfilia Castillo Maturana</p>
+        <p>Alejandro Rios Gonzalez</p>
+    </div>
+</footer>

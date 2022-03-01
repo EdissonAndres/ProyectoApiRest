@@ -1,0 +1,122 @@
+<header class="header">
+    <h2>Cliente API REST</h2>
+    <button routerLink='/'>CLIENTES</button>
+    <button routerLink='/carrito'>PRODUCTOS</button>
+    <button routerLink='/compras'>COMPRAS</button>
+</header>
+
+<section class="principal">
+    <form class="agregar" [formGroup]="formAgregar">
+        <h3>Agregar Cliente</h3>
+        <div>
+            <p>Cedula *</p>
+            <input type="text" [formControl]="cedulaFormControl">
+        </div>
+        <div>
+            <p>Nombres *</p>
+            <input type="text" [formControl]="nombresFormControl">
+        </div>
+        <div>
+            <p>Apellidos *</p>
+            <input type="text" [formControl]="apellidosFormControl">
+        </div>
+        <div>
+            <p>Correo *</p>
+            <input type="text" [formControl]="correoFormControl">
+        </div>
+        <div>
+            <p>Direccion *</p>
+            <input type="text" [formControl]="direccionFormControl">
+        </div>
+        <div>
+            <p>Telefono *</p>
+            <input type="text" [formControl]="telefonoFormControl">
+        </div>
+        <button (click)="postCliente()" class="boton">AGREGAR CLIENTE</button>
+    </form>
+
+    <form class="buscar" [formGroup]="formBuscar">
+        <h3>Buscar Cliente</h3>
+        <div>
+            <p>Cedula *</p>
+            <input type="text" [formControl]="cedulaBFormControl">
+        </div>
+        <button (click)="getCliente()" class="boton">BUSCAR</button>
+        <div>
+            <p>Cedula: {{clienteb?.cliente?.cedula}}</p>
+            <p>Nombres: {{clienteb?.cliente?.nombres}}</p>
+            <p>Apellidos: {{clienteb?.cliente?.apellidos}}</p>
+            <p>Correo: {{clienteb?.cliente?.correo}}</p>
+            <p>Direccion: {{clienteb?.cliente?.direccion}}</p>
+            <p>Telefono: {{clienteb?.cliente?.telefono}}</p>
+        </div>
+    </form>
+
+    <form class="listar">
+        <h3>Listar Clientes</h3>
+        <button class="boton" (click)="getClientes()">LISTAR CLIENTES</button>
+        <div *ngFor="let cliente of clientes.clientes">
+            <p>Cedula: {{cliente.cedula}}</p>
+            <p>Nombres: {{cliente.nombres}}</p>
+            <p>Apellidos: {{cliente.apellidos}}</p>
+            <p>Correo: {{cliente.correo}}</p>
+            <p>Direccion: {{cliente.direccion}}</p>
+            <p>Telefono: {{cliente.telefono}}</p>
+            <hr>
+        </div>
+    </form>
+
+    <form class="actualizar" [formGroup]="formActualizar">
+        <h3>Actualizar Cliente</h3>
+        <div>
+            <p>Cedula *</p>
+            <input type="text" [formControl]="cedulaAFormControl">
+        </div>
+        <div>
+            <p>Nombres</p>
+            <input type="text" [formControl]="nombresAFormControl"> 
+        </div>
+        <div>
+            <p>Apellidos</p>
+            <input type="text" [formControl]="apellidosAFormControl">
+        </div>
+        <div>
+            <p>Correo</p>
+            <input type="text" [formControl]="correoAFormControl">
+        </div>
+        <div>
+            <p>Direccion</p>
+            <input type="text" [formControl]="direccionAFormControl">
+        </div>
+        <div>
+            <p>Telefono</p>
+            <input type="text" [formControl]="telefonoAFormControl">
+        </div>
+        <button (click)="putCliente()" class="boton">ACTUALIZAR CLIENTE</button>
+    </form>
+
+    <form class="eliminar" [formGroup]="formEliminar">
+        <h3>Eliminar Cliente</h3>
+        <div>
+            <p>Cedula *</p>
+            <input type="text" [formControl]="cedulaEFormControl">
+        </div>
+        <button (click)="deleteCliente()" class="boton">ELIMINAR CLIENTE</button>
+    </form>
+
+</section> 
+
+<footer class="footer">
+    <div class="informacion">
+        <p>Proyecto API REST</p>
+        <p>Arquitectura Cliente Servidor</p>
+        <p>Universidad Tecnologica de Pereira</p>
+    </div>
+    <p class="personas">Desarrolado por:</p>
+    <div>
+        <p>Edisson Andres Montes</p>
+        <p>Orfilia Castillo Maturana</p>
+        <p>Alejandro Rios Gonzalez</p>
+    </div>
+</footer>
+
